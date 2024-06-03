@@ -8,9 +8,6 @@ def main():
     printCharacterCounts(getCharacterCounts(text))
     print("--- End report ---")
 
-
-
-
 def getBookText(path):
     with open(path) as f:
         return f.read()
