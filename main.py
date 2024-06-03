@@ -1,10 +1,15 @@
 def main():
     path = "/home/samwise/workspace/github.com/thenakedgypsy/bookbot/books/frankenstein.txt"
     text = getBookText(path)
-    print(text)
-    print(f"Word Count: {getWordCount(text)}")
-    print("Character Counts:")
-    getCharacterCounts(text)
+    print("--- Begin report of " + path + " ---")
+    count = getWordCount(text)
+    print(f"{count} words found in the document")
+    print(" ")
+    printCharacterCounts(getCharacterCounts(text))
+    print("--- End report ---")
+
+
+
 
 def getBookText(path):
     with open(path) as f:
@@ -26,12 +31,13 @@ def getCharacterCounts(text):
             alphabet[letter] += 1
         else:
             alphabet[letter] = 1
-    print(alphabet)
+    return(alphabet)
 
-        
+def printCharacterCounts(alphabet):
+    for letter in alphabet:
+        print(f"The '{letter}' character was found {alphabet[letter]} times")
+
+
 
     
-
-
-
 main()
